@@ -44,7 +44,7 @@ pipeline {
            echo 'Packaging users app with docker'
            script{
              docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-                 def usersImage = docker.build("akrawat/users:v${env.BUILD_ID}", "result/**")
+                 def usersImage = docker.build("akrawat/users:v${env.BUILD_ID}", "result/")
                  usersImage.push()
                  usersImage.push("latest")
 
